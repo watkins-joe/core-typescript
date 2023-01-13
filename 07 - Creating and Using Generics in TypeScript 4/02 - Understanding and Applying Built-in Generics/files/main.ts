@@ -1,9 +1,7 @@
-import { Book } from "./Book";
-import { Magazine } from "./Magazine";
-import { Shelf } from "./Shelf";
+let junkDrawer: any[] = ['cool string', 42, true];
 
-let bookShelf: Shelf<Book> = new Shelf<Book>();
+let companies: Array<string> = ["Microsoft", "Google", "Amazon"];
 
-bookShelf.addItemToCatalog(new Book());
+let primeNums: Array<number> = [7, 11, 13];
 
-bookShelf.addItemToCatalog(new Magazine());
+let lastNumber = primeNums.pop();

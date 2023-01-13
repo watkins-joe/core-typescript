@@ -101,3 +101,23 @@ this will allow me to reuse this code with many different types.
 i no longer need to write new classes for a BookShelf and a MagazineShelf.ect.
 
 ## Using Generic Arrays
+
+we can have generic arrays by using the Array constructor
+
+![array generic type](images/interfaceArrayT.png)
+
+by peeking into the Array definition, we can see that it's an interface with a single type parameter, `T`
+
+the type specified when we use this interface will also be the type applied for `T` throughout the object that implements the interface
+
+```ts
+let companies: Array<string> = ["Microsoft", "Google", "Amazon"];
+
+let primeNums: Array<number> = [7, 11, 13];
+```
+
+the compiler will warn you when you put an item into an array whose types don't match up due to the generic type you passed into Array
+
+the compiler can also infer the type of a variable based on the data in the array
+
+![ts infer types](images/tsInferTypes.png)
