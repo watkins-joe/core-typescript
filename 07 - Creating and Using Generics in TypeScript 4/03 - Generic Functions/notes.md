@@ -49,3 +49,45 @@ checkOut(someBook, someStudent);
 a single type is the most common in functions.
 
 with each additional type, the level of abstraction goes up, and practicality goes down
+
+## creating Generic Functions
+
+passing in generic type parameters into functions can allow us to have our functions be able to process different kinds of data types
+
+a generic shortenArray function:
+
+```ts
+function shortenArray<T>(data: Array<T>, amountToShorten: number) {
+  return data.splice(amountToShorten, data.length);
+}
+```
+
+can be used to shorten an array of any specific type
+
+```ts
+let stringArray: string[] = ["Visual Basic", "C++", "TypeScript", "JavaScript"];
+
+let fewerLanguages = shortenArray(stringArray, 2);
+```
+
+returns an array of strings as expected
+
+however, it can be used with other types and provide type-safety at a certain point in code
+
+example:
+
+our shortenArray function at this point in the code could be told to only accept strings as an argument, and would throw an error.
+
+```ts
+let fewerLanguages = shortenArray<string>([1, 2, 3], 2);
+```
+
+![type safety at this point in the code](images/typeSafety.png)
+
+not passing in the type to the invoked function removes the error and the compiler assumes we are OK with the new return type being `number[]`
+
+```ts
+let fewerLanguages = shortenArray([1, 2, 3], 2);
+```
+
+![ok with number type because of no explict generic type](images/okWNumType.png)
