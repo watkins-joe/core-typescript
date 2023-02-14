@@ -1,8 +1,8 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "watch": true
-    }
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "watch": true
+  }
 }
