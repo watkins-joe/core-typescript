@@ -66,3 +66,51 @@ setMeta(imageLayer, {
 ```
 
 you combine generics with ternary statements to go and build relationships between types
+
+### conditional return types
+
+see `lesson.3.begin.ts` and `lesson.3.end.ts` for changes to code and what was changed.
+
+```ts
+type FactoryLayer<T> = T extends LayerType.Text ? TextLayer : ImageLayer;
+
+function createLayer<T extends LayerType>(type: T): FactoryLayer<T> {
+  if (type === LayerType.Text) {
+    return {
+      color: "#fff",
+      fontSize: "10px",
+      id: new Date().toISOString(),
+      maxWidth: 10000,
+      position: { x: 10, y: 10 },
+      rotation: 0,
+      text: "This is the default text",
+      type: LayerType.Text,
+    } as FactoryLayer<T>;
+  }
+
+  return {
+    id: new Date().toISOString(),
+    maxBounds: { width: 400 },
+    position: { x: 0, y: 0 },
+    rotation: 0,
+    src: "ps-dark.png",
+    type: LayerType.Image,
+  } as FactoryLayer<T>;
+}
+```
+
+### mapped types
+
+we will use a map type that will create a new type with all of the properties of another type.
+
+example:
+
+```ts
+type NewType = {
+  [key in keyof ExistingType]: AnyTypeYouChoose;
+};
+```
+
+#### using partial types
+
+using partial types to allow only a valid subset of a type to limit the properties we're passing into our function
