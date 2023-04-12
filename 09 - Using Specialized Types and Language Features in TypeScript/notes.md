@@ -39,3 +39,30 @@ function setSrcOnSelection(layers: Layer[], value: string) {
 ```
 
 ## basic conditional types
+
+when we use conditional types, we always use generics.
+
+in this scenario, we said if T extends TextLayer, then this meta parameter should be of type `TextMeta`, otherwise `ImageMeta`.
+
+example:
+
+```ts
+function setMeta<T extends TextLayer | ImageLayer>(
+  layer: T,
+  meta: T extends TextLayer ? TextMeta : ImageMeta
+) {
+  layer.meta = meta;
+}
+
+setMeta(textLayer, {
+  fontFoundry: "Own foundry",
+  licenseExpiration: new Date(),
+});
+
+setMeta(imageLayer, {
+  format: "jpg",
+  origin: "Download",
+});
+```
+
+you combine generics with ternary statements to go and build relationships between types
