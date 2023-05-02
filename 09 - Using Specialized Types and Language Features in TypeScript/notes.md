@@ -113,4 +113,6 @@ type NewType = {
 
 #### using partial types
 
+in `09 - Using Specialized Types and Language Features in TypeScript/pluralsight-ts-advanced-types/lessons/5-Generating-Complex-Types-Based-on-Existing-Types/lesson.2.begin.ts`
+
 using partial types to allow only a valid subset of a type to limit the properties we're passing into our function
